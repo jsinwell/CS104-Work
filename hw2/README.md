@@ -6,6 +6,6 @@ Twelve commands are allowed: LET, PRINT, PRINTALL, ADD, SUB, MULT, DIV, GOTO, IF
 
 To run the program, type make all in the compiler and run ./interpreter
 
-Name: Jon SInwell
+Name: Jon Sinwell
 Email: jsinwell@usc.edu
 USCID: 8709306701
