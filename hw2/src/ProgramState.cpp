@@ -48,7 +48,7 @@ void ProgramState::printAll(ostream& outf) {
     }
 }
 
-void ProgramState::endState() { return; }
+ProgramState* ProgramState::endState() { return NULL; }
 
 int ProgramState::getLine() { return line; }
 
@@ -78,7 +78,7 @@ void ProgramState::div(string s, int val) {
     programMap[s] = quotient;
 }
 
-int ProgramState::getNumLines() { return m_numLines; }
+int ProgramState::getNumLines() { return m_numLines; }  // Helpful for GOTO to make sure no illegal jumps
 
 void ProgramState::goTo(int val) { line = val; }
 

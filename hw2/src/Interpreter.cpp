@@ -186,7 +186,7 @@ void interpretProgram(istream& inf, ostream& outf) {
     vector<Statement*> program;
     parseProgram(inf, program);
 
-    int size = program.size() - 1;
+    int size = program.size() - 1;  // NOTE: make sure there are no empty lines at end of .txt file
 
     ProgramState* state = new ProgramState(size);
 
@@ -196,8 +196,9 @@ void interpretProgram(istream& inf, ostream& outf) {
     }
 
     else {
-        while ((program[state->getLine()]) != NULL) {
-            program[state->getLine()]->execute(state, outf);
+        while ((program[state->getLine()])
+               != NULL) {  // Iterate through each line number until reach END, which returns NULL
+            program[state->getLine()]->execute(state, outf);  // Execute each line number's statement
         }
     }
 

@@ -45,7 +45,7 @@ public:
 
     int getValue(std::string s);  // Get value of variable
 
-    void endState();  // End the program
+    ProgramState* endState();  // End the program
 
     void add(std::string s, int val);
 
