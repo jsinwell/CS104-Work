@@ -198,7 +198,7 @@ void interpretProgram(istream& inf, ostream& outf) {
     else {
         while ((program[state->getLine()])
                != NULL) {  // Iterate through each line number until reach END, which returns NULL
-            program.at(state->getLine())->execute(state, outf);  // Execute each line number's statement
+            program.at(state->getLine())->execute(state, outf);  // Run each line number's statement
         }
     }
 
