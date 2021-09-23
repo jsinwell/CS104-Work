@@ -16,6 +16,5 @@ void IfStatement::execute(ProgramState* state, ostream& outf) {
 
     else {
         state->ifState(m_var, m_operator, m_valueToCompare, m_line);
-        state->nextLine();
     }
 }

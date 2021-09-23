@@ -61,20 +61,18 @@ void parseProgram(istream& inf, vector<Statement*>& program) {
 Statement* parseLine(string line) {
     Statement* statement;
     stringstream ss;
-    stringstream temp;  // Temp stringstream for arithmetic of two variables
     string type;
-    string type2; // Used for THEN
+    string lineNum;
     string var;
-    string var2;
-    string op; // Operator for IF statement
+    string var2; // For arithmetic operations
+    string op;  // Operator for IF statement
+    string then;
     int val;
     int lineToJump;
 
     ss << line;
+    ss >> lineNum;  // Capture line number in input files
     ss >> type;
-
-    temp << line;
-    temp >> type;
 
     if (type == "LET") {
         ss >> var;
@@ -98,6 +96,7 @@ Statement* parseLine(string line) {
 
     else if (type == "END" || type == ".") {
         statement = new EndStatement();
+        return NULL;
     }
 
     else if (type == "GOTO") {
@@ -117,10 +116,9 @@ Statement* parseLine(string line) {
     else if (type == "ADD") {
         ss >> var;
         ss >> val;
-
-        if (ss.fail()) {  // If ss fails, it means we are adding two variables
-            temp >> var;  // Temporary fix, try to figure out how to clear ss stream
-            temp >> var2;
+        if (ss.fail()) { // If stringstream fails to pull a value
+            ss.clear(); // Clear and capture variable
+            ss >> var2;
             statement = new AddStatement(var, var2);
         }
 
@@ -132,10 +130,9 @@ Statement* parseLine(string line) {
     else if (type == "SUB") {
         ss >> var;
         ss >> val;
-
-        if (ss.fail()) {  // See ADD type
-            temp >> var;
-            temp >> var2;
+        if (ss.fail()) { // See ADD
+            ss.clear();
+            ss >> var2;
             statement = new SubStatement(var, var2);
         }
 
@@ -147,10 +144,9 @@ Statement* parseLine(string line) {
     else if (type == "MULT") {
         ss >> var;
         ss >> val;
-
         if (ss.fail()) {
-            temp >> var;
-            temp >> var2;
+            ss.clear();
+            ss >> var2;
             statement = new MultiplyStatement(var, var2);
         }
 
@@ -162,10 +158,9 @@ Statement* parseLine(string line) {
     else if (type == "DIV") {
         ss >> var;
         ss >> val;
-
         if (ss.fail()) {
-            temp >> var;
-            temp >> var2;
+            ss.clear();
+            ss >> var2;
             statement = new DivStatement(var, var2);
         }
 
@@ -178,12 +173,12 @@ Statement* parseLine(string line) {
         ss >> var;
         ss >> op;
         ss >> val;
-        ss >> type2;
+        ss >> then;
         ss >> lineToJump;
 
         statement = new IfStatement(var, op, val, lineToJump);
     }
-    
+
     return statement;
 }
 
@@ -201,10 +196,11 @@ void interpretProgram(istream& inf, ostream& outf) {
         return;
     }
 
-    // fix
     else {
         while ((program[state->getLine()]) != NULL) {
             program[state->getLine()]->execute(state, outf);
         }
     }
+
+    delete state;
 }

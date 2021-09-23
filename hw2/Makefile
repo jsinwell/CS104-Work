@@ -6,10 +6,13 @@ CPPFLAGS = -g -Wall -I$(LIB_DIR)
 
 all: $(BIN_DIR)/.dirstamp interpreter
 
-interpreter: $(SRC_DIR)/Interpreter.cpp $(BIN_DIR)/ProgramState.o $(BIN_DIR)/DivStatement.o $(BIN_DIR)/AddStatement.o $(BIN_DIR)/EndStatement.o $(BIN_DIR)/GoSubStatement.o $(BIN_DIR)/IfStatement.o $(BIN_DIR)/LetStatement.o $(BIN_DIR)/MultiplyStatement.o $(BIN_DIR)/PrintAllStatement.o $(BIN_DIR)/ReturnStatement.o $(BIN_DIR)/SubStatement.o $(BIN_DIR)/PrintStatement.o $(BIN_DIR)/GoToStatement.o
+interpreter: $(SRC_DIR)/Interpreter.cpp $(BIN_DIR)/ProgramState.o $(BIN_DIR)/Statement.o $(BIN_DIR)/DivStatement.o $(BIN_DIR)/AddStatement.o $(BIN_DIR)/EndStatement.o $(BIN_DIR)/GoSubStatement.o $(BIN_DIR)/IfStatement.o $(BIN_DIR)/LetStatement.o $(BIN_DIR)/MultiplyStatement.o $(BIN_DIR)/PrintAllStatement.o $(BIN_DIR)/ReturnStatement.o $(BIN_DIR)/SubStatement.o $(BIN_DIR)/PrintStatement.o $(BIN_DIR)/GoToStatement.o
 	$(CXX) $(CPPFLAGS) $^ -o $@
 
 $(BIN_DIR)/ProgramState.o: $(SRC_DIR)/ProgramState.cpp $(LIB_DIR)/ProgramState.h
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+	
+$(BIN_DIR)/Statement.o: $(SRC_DIR)/Statement.cpp $(LIB_DIR)/Statement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
 $(BIN_DIR)/DivStatement.o: $(SRC_DIR)/DivStatement.cpp $(LIB_DIR)/DivStatement.h

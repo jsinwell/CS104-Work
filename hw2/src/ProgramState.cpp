@@ -48,7 +48,9 @@ void ProgramState::printAll(ostream& outf) {
     }
 }
 
-ProgramState* ProgramState::endState() { return NULL; }
+void ProgramState::endState() { 
+    return;
+}
 
 int ProgramState::getLine() { return line; }
 

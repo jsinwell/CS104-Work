@@ -29,7 +29,7 @@ class Statement
 public:
 	virtual void execute(ProgramState*  state, std::ostream &outf) = 0;
 
-   // ~Statement(); // Base class destructor
+    ~Statement(); // Base class destructor
 };
 
 #endif
