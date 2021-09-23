@@ -52,7 +52,9 @@ void ProgramState::endState() {
     return;
 }
 
-int ProgramState::getLine() { return line; }
+int ProgramState::getLine() { 
+    return line; 
+}
 
 int ProgramState::getValue(string s) {
     it = programMap.find(s);
@@ -80,12 +82,16 @@ void ProgramState::div(string s, int val) {
     programMap[s] = quotient;
 }
 
-int ProgramState::getNumLines() { return m_numLines; }
+int ProgramState::getNumLines() {
+    return m_numLines; 
+}
 
-void ProgramState::goTo(int val) { line = val; }
+void ProgramState::goTo(int val) {
+    line = val;
+}
 
 void ProgramState::goSub(int val) {
-    lineStack.push(line);
+    lineStack.push(line); // Push line number onto stack so we can refer back later
     goTo(val);
 }
 
