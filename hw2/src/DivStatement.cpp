@@ -1,4 +1,4 @@
-#include "../lib/DivStatement.h"
+#include "DivStatement.h"
 using namespace std;
 
 DivStatement::DivStatement(string variableName, int value) {

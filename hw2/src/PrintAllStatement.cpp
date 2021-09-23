@@ -1,4 +1,4 @@
-#include "../lib/PrintAllStatement.h"
+#include "PrintAllStatement.h"
 
 using namespace std;
 

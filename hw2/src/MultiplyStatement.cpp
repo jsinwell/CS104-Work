@@ -1,4 +1,4 @@
-#include "../lib/MultiplyStatement.h"
+#include "MultiplyStatement.h"
 using namespace std;
 
 MultiplyStatement::MultiplyStatement(string variableName, int value) {

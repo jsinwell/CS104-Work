@@ -1,4 +1,4 @@
-#include "../lib/ProgramState.h"
+#include "ProgramState.h"
 
 #include <iostream>
 using namespace std;

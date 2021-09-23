@@ -1,4 +1,4 @@
-#include "../lib/ReturnStatement.h"
+#include "ReturnStatement.h"
 using namespace std;
 
 ReturnStatement::ReturnStatement() {}

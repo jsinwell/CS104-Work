@@ -1,4 +1,4 @@
-#include "../lib/GoToStatement.h"
+#include "GoToStatement.h"
 using namespace std;
 
 GoToStatement::GoToStatement(int line) { m_line = line; }

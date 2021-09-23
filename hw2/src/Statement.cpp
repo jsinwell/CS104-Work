@@ -1,4 +1,4 @@
-#include "../lib/Statement.h"
+#include "Statement.h"
 
 using namespace std;
 

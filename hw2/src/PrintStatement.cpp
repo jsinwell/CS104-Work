@@ -1,5 +1,5 @@
 // PrintStatement.cpp:
-#include "../lib/PrintStatement.h"
+#include "PrintStatement.h"
 
 using namespace std;
 

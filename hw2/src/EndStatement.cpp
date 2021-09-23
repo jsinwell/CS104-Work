@@ -1,4 +1,4 @@
-#include "../lib/EndStatement.h"
+#include "EndStatement.h"
 
 using namespace std;
 

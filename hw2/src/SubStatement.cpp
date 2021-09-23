@@ -1,4 +1,4 @@
-#include "../lib/SubStatement.h"
+#include "SubStatement.h"
 using namespace std;
 
 SubStatement::SubStatement(string variableName, int value) {
