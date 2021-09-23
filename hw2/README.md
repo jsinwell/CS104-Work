@@ -1,18 +1,7 @@
 # Contents
 
-Program allows you to create a .txt file and input lines of instructions.
-An example of a full instruction is:
+Program allows you to create a .txt file and input lines of instructions, outputting the results.
 
-1 LET JON 1
-2 LET BRENDAN 3
-3 ADD JON BRENDAN
-4 PRINTALL
-5 END
-6 .
+Twelve commands are allowed: LET, PRINT, PRINTALL, ADD, SUB, MULT, DIV, GOTO, IF, GOSUB, RETURN, END
 
-Which would print out:
-
-JON 4
-BRENDAN 3
-
-To run the program, type make in the compiler and run ./interpreter
+To run the program, type make all in the compiler and run ./interpreter
