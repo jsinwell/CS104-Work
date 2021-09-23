@@ -23,30 +23,29 @@
 #include <map>
 #include <stack>
 
-class ProgramState
-{
+class ProgramState {
 public:
-	ProgramState(int numLines);
+    ProgramState(int numLines);
 
-	// You'll need to add a variety of methods here.  Rather than trying to
-	// think of what you'll need to add ahead of time, add them as you find
-	// that you need them.
+    // You'll need to add a variety of methods here.  Rather than trying to
+    // think of what you'll need to add ahead of time, add them as you find
+    // that you need them.
 
     void nextLine();
 
-    void setValue(std::string s, int val); // Sets value for LET
+    void setValue(std::string s, int val);  // Sets value for LET
 
-    void print(std::string s, std::ostream& outf); // Print out a variable
+    void print(std::string s, std::ostream& outf);  // Print out a variable
 
-    void printAll(std::ostream& outf); // Prints out all variables in format, VAR VAL
+    void printAll(std::ostream& outf);  // Prints out all variables in format, VAR VAL
 
     int getLine();
 
     int getNumLines();
 
-    int getValue(std::string s); // Get value of variable
+    int getValue(std::string s);  // Get value of variable
 
-    void endState(); // End the program
+    void endState();  // End the program
 
     void add(std::string s, int val);
 
@@ -64,13 +63,12 @@ public:
 
     void ifState(std::string var, std::string op, int val, int line);
 
-
 private:
     int m_numLines;
     int line;
-    std::map<std::string, int> programMap; // Map to store variables and their values
-    std::map<std::string, int>::iterator it; // Map iterator
-    std::stack<int> lineStack; // Stack for GOSUB and RETURN
+    std::map<std::string, int> programMap;    // Map to store variables and their values
+    std::map<std::string, int>::iterator it;  // Map iterator
+    std::stack<int> lineStack;                // Stack for GOSUB and RETURN
 };
 
 #endif

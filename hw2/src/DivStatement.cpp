@@ -23,7 +23,7 @@ void DivStatement::execute(ProgramState* state, ostream& outf) {
         outf << "Divide by zero exception" << endl;
         return;
     }
-   
+
     state->div(m_variableName, m_value);
     state->nextLine();
 }

@@ -6,8 +6,8 @@
 
 class DivStatement : public Statement {
 public:
-    DivStatement(std::string variableName, int value);                 
-    DivStatement(std::string variableName, std::string variableName2); 
+    DivStatement(std::string variableName, int value);
+    DivStatement(std::string variableName, std::string variableName2);
     virtual void execute(ProgramState* state, std::ostream& outf);
 
 private:

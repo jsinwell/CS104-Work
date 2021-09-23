@@ -11,8 +11,6 @@ public:
 
 private:
     int m_line;
-
-
 };
 
 #endif

@@ -64,8 +64,8 @@ Statement* parseLine(string line) {
     string type;
     string lineNum;
     string var;
-    string var2; // For arithmetic operations
-    string op;  // Operator for IF statement
+    string var2;  // For arithmetic operations
+    string op;    // Operator for IF statement
     string then;
     int val;
     int lineToJump;
@@ -86,7 +86,7 @@ Statement* parseLine(string line) {
 
     else if (type == "PRINT") {
         ss >> var;
-        statement = new PrintStatement(var);  
+        statement = new PrintStatement(var);
     }
 
     else if (type == "PRINTALL") {
@@ -96,7 +96,7 @@ Statement* parseLine(string line) {
 
     else if (type == "END" || type == ".") {
         statement = new EndStatement();
-        return NULL; // END should terminate program and set statement to NULL
+        return NULL;  // END should terminate program and set statement to NULL
     }
 
     else if (type == "GOTO") {
@@ -116,8 +116,8 @@ Statement* parseLine(string line) {
     else if (type == "ADD") {
         ss >> var;
         ss >> val;
-        if (ss.fail()) { // If stringstream fails to pull a value
-            ss.clear(); // Clear and capture second variable
+        if (ss.fail()) {  // If stringstream fails to pull a value
+            ss.clear();   // Clear and capture second variable
             ss >> var2;
             statement = new AddStatement(var, var2);
         }
@@ -130,7 +130,7 @@ Statement* parseLine(string line) {
     else if (type == "SUB") {
         ss >> var;
         ss >> val;
-        if (ss.fail()) { // See ADD
+        if (ss.fail()) {  // See ADD
             ss.clear();
             ss >> var2;
             statement = new SubStatement(var, var2);
@@ -170,7 +170,7 @@ Statement* parseLine(string line) {
     }
 
     else if (type == "IF") {
-        ss >> var; // Capture variable, the operator, value, THEN, and the line to jump to
+        ss >> var;  // Capture variable, the operator, value, THEN, and the line to jump to
         ss >> op;
         ss >> val;
         ss >> then;
@@ -190,7 +190,7 @@ void interpretProgram(istream& inf, ostream& outf) {
 
     ProgramState* state = new ProgramState(size);
 
-    if (size > 1000) { // Program size cannot exceed 1000 lines
+    if (size > 1000) {  // Program size cannot exceed 1000 lines
         outf << "Error: program too large" << endl;
         return;
     }

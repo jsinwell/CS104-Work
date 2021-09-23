@@ -15,7 +15,7 @@ AddStatement::AddStatement(string variableName, string variableName2) {
 
 void AddStatement::execute(ProgramState* state, ostream& outf) {
 
-    if (varAndVal == false) { // Using second constructor: var and val
+    if (varAndVal == false) {  // Using second constructor: var and val
         m_value = state->getValue(m_variableName2);
         state->add(m_variableName, m_value);
         state->nextLine();

@@ -10,8 +10,8 @@ IfStatement::IfStatement(string var, string op, int valueToCompare, int line) {
 
 void IfStatement::execute(ProgramState* state, ostream& outf) {
     if ((m_line < 1) || (m_line > state->getNumLines())) {
-        outf << "Illegal jump instruction" << endl; // Line out of range
-        std::exit(1); // Terminate program
+        outf << "Illegal jump instruction" << endl;  // Line out of range
+        std::exit(1);                                // Terminate program
     }
 
     else {

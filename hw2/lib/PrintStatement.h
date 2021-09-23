@@ -1,18 +1,17 @@
 #ifndef PRINT_STATEMENT_INCLUDED
 #define PRINT_STATEMENT_INCLUDED
 
-#include "Statement.h"
 #include "ProgramState.h"
+#include "Statement.h"
 
-class PrintStatement: public Statement
-{
+class PrintStatement : public Statement {
 private:
-	std::string m_variableName;
-	
+    std::string m_variableName;
+
 public:
-	PrintStatement(std::string variableName);
-	
-	virtual void execute(ProgramState * state, std::ostream &outf);
+    PrintStatement(std::string variableName);
+
+    virtual void execute(ProgramState* state, std::ostream& outf);
 };
 
 #endif

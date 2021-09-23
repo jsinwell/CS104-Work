@@ -6,8 +6,9 @@
 
 class GoToStatement : public Statement {
 public:
-    GoToStatement(int line); 
+    GoToStatement(int line);
     virtual void execute(ProgramState* state, std::ostream& outf);
+
 private:
     int m_line;
 };
