@@ -1,54 +1,60 @@
+BIN_DIR = bin
+LIB_DIR = lib
+SRC_DIR = src
 CXX = g++
-CPPFLAGS = -g -Wall 
+CPPFLAGS = -g -Wall -I$(LIB_DIR)
 
-all: interpreter
+all: $(BIN_DIR)/.dirstamp interpreter
 
-interpreter: Interpreter.cpp ProgramState.o Statement.o DivStatement.o AddStatement.o EndStatement.o GoSubStatement.o IfStatement.o LetStatement.o MultiplyStatement.o PrintAllStatement.o ReturnStatement.o SubStatement.o PrintStatement.o GoToStatement.o
+interpreter: $(SRC_DIR)/Interpreter.cpp $(BIN_DIR)/ProgramState.o $(BIN_DIR)/Statement.o $(BIN_DIR)/DivStatement.o $(BIN_DIR)/AddStatement.o $(BIN_DIR)/EndStatement.o $(BIN_DIR)/GoSubStatement.o $(BIN_DIR)/IfStatement.o $(BIN_DIR)/LetStatement.o $(BIN_DIR)/MultiplyStatement.o $(BIN_DIR)/PrintAllStatement.o $(BIN_DIR)/ReturnStatement.o $(BIN_DIR)/SubStatement.o $(BIN_DIR)/PrintStatement.o $(BIN_DIR)/GoToStatement.o
 	$(CXX) $(CPPFLAGS) $^ -o $@
 
-ProgramState.o: ProgramState.cpp ProgramState.h
+$(BIN_DIR)/ProgramState.o: $(SRC_DIR)/ProgramState.cpp $(LIB_DIR)/ProgramState.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-Statement.o: Statement.cpp Statement.h
+$(BIN_DIR)/Statement.o: $(SRC_DIR)/Statement.cpp $(LIB_DIR)/Statement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-DivStatement.o: DivStatement.cpp DivStatement.h
+$(BIN_DIR)/DivStatement.o: $(SRC_DIR)/DivStatement.cpp $(LIB_DIR)/DivStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-AddStatement.o: AddStatement.cpp AddStatement.h
+$(BIN_DIR)/AddStatement.o: $(SRC_DIR)/AddStatement.cpp $(LIB_DIR)/AddStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-EndStatement.o: EndStatement.cpp EndStatement.h
+$(BIN_DIR)/EndStatement.o: $(SRC_DIR)/EndStatement.cpp $(LIB_DIR)/EndStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-GoSubStatement.o: GoSubStatement.cpp GoSubStatement.h
+$(BIN_DIR)/GoSubStatement.o: $(SRC_DIR)/GoSubStatement.cpp $(LIB_DIR)/GoSubStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-IfStatement.o: IfStatement.cpp IfStatement.h
+$(BIN_DIR)/IfStatement.o: $(SRC_DIR)/IfStatement.cpp $(LIB_DIR)/IfStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-LetStatement.o: LetStatement.cpp LetStatement.h
+$(BIN_DIR)/LetStatement.o: $(SRC_DIR)/LetStatement.cpp $(LIB_DIR)/LetStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-GoToStatement.o: GoToStatement.cpp GoToStatement.h
+$(BIN_DIR)/GoToStatement.o: $(SRC_DIR)/GoToStatement.cpp $(LIB_DIR)/GoToStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-MultiplyStatement.o: MultiplyStatement.cpp MultiplyStatement.h
+$(BIN_DIR)/MultiplyStatement.o: $(SRC_DIR)/MultiplyStatement.cpp $(LIB_DIR)/MultiplyStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-PrintAllStatement.o: PrintAllStatement.cpp PrintAllStatement.h
+$(BIN_DIR)/PrintAllStatement.o: $(SRC_DIR)/PrintAllStatement.cpp $(LIB_DIR)/PrintAllStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 
-PrintStatement.o: PrintStatement.cpp PrintStatement.h
+$(BIN_DIR)/PrintStatement.o: $(SRC_DIR)/PrintStatement.cpp $(LIB_DIR)/PrintStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 	
-ReturnStatement.o: ReturnStatement.cpp ReturnStatement.h
+$(BIN_DIR)/ReturnStatement.o: $(SRC_DIR)/ReturnStatement.cpp $(LIB_DIR)/ReturnStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 
-SubStatement.o: SubStatement.cpp SubStatement.h
+$(BIN_DIR)/SubStatement.o: $(SRC_DIR)/SubStatement.cpp $(LIB_DIR)/SubStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 .PHONY: clean	
 clean:
-	rm -rf 
+	rm -rf $(BIN_DIR)
 	
+$(BIN_DIR)/.dirstamp:
+	mkdir -p $(BIN_DIR)
+	touch $(BIN_DIR)/.dirstamp
