@@ -1,4 +1,4 @@
-// interpreter.cpp
+// Interpreter.cpp
 #include "AddStatement.h"
 #include "DivStatement.h"
 #include "EndStatement.h"
