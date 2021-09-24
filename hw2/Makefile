@@ -1,9 +1,9 @@
 CXX = g++
-CPPFLAGS = -Wall -g
+CPPFLAGS = -Wall -g -std=c++17
 
 all: interpreter
 
-interpreter: ProgramState.o LetStatement.o PrintStatement.o PrintAllStatement.o AddStatement.o EndStatement.o IfStatement.o GoToStatement.o GoSubStatement.o ReturnStatement.o DivStatement.o SubStatement.o MultiplyStatement.o ProgramState.o Statement.o interpreter.cpp
+interpreter: interpreter.cpp ProgramState.o LetStatement.o PrintStatement.o PrintAllStatement.o AddStatement.o EndStatement.o IfStatement.o GoToStatement.o GoSubStatement.o ReturnStatement.o DivStatement.o SubStatement.o MultiplyStatement.o ProgramState.o Statement.o
 	$(CXX) $(CPPFLAGS) $^ -o $@
 
 LetStatement.o: LetStatement.h LetStatement.cpp
@@ -50,4 +50,4 @@ Statement.o: Statement.h Statement.cpp
 
 .PHONY: clean
 clean:
-	rm *o
+	rm -f *.o interpreter
