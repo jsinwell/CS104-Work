@@ -7,7 +7,7 @@
 #include "IfStatement.h"
 #include "LetStatement.h"
 #include "MultiplyStatement.h"
-#include "PrintALLStatement.h"
+#include "PrintAllStatement.h"
 #include "PrintStatement.h"
 #include "ProgramState.h"
 #include "ReturnStatement.h"
