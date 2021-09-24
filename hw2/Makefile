@@ -4,7 +4,7 @@ SRC_DIR = src
 CXX = g++
 CPPFLAGS = -Wall -g -I$(LIB_DIR)
 
-all: $(BIN_DIR)/.dirstamp interpreter
+all: $(BIN_DIR)/.dirstamp $(LIB_DIR)/Statement.h interpreter
 
 $(BIN_DIR)/.dirstamp:
 	mkdir -p $(BIN_DIR)
