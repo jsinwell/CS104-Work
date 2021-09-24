@@ -10,7 +10,7 @@ $(BIN_DIR)/.dirstamp:
 	mkdir -p $(BIN_DIR)
 	touch $(BIN_DIR)/.dirstamp
 
-interpreter: $(SRC_DIR)/Interpreter.cpp $(BIN_DIR)/AddStatement.o $(BIN_DIR)/SubStatement.o $(BIN_DIR)/MultiplyStatement.o $(BIN_DIR)/DivStatement.o $(BIN_DIR)/EndStatement.o $(BIN_DIR)/LetStatement.o $(BIN_DIR)/PrintStatement.o $(BIN_DIR)/PrintAllStatement.o $(BIN_DIR)/GoToStatement.o $(BIN_DIR)/GoSubStatement.o $(BIN_DIR)/ReturnStatement.o $(BIN_DIR)/IfStatement.o $(BIN_DIR)/ProgramState.o
+interpreter: $(SRC_DIR)/Interpreter.cpp $(BIN_DIR)/AddStatement.o $(BIN_DIR)/SubStatement.o $(BIN_DIR)/MultiplyStatement.o $(BIN_DIR)/DivStatement.o $(BIN_DIR)/EndStatement.o $(BIN_DIR)/LetStatement.o $(BIN_DIR)/PrintStatement.o $(BIN_DIR)/PrintAllStatement.o $(BIN_DIR)/GoToStatement.o $(BIN_DIR)/GoSubStatement.o $(BIN_DIR)/ReturnStatement.o $(BIN_DIR)/IfStatement.o $(BIN_DIR)/ProgramState.o $(BIN_DIR)/Statement.o
 	$(CXX) $(CPPFLAGS) $^ -o $@
 
 $(BIN_DIR)/AddStatement.o: $(SRC_DIR)/AddStatement.cpp $(LIB_DIR)/AddStatement.h
@@ -51,6 +51,10 @@ $(BIN_DIR)/ReturnStatement.o: $(SRC_DIR)/ReturnStatement.cpp $(LIB_DIR)/ReturnSt
 
 $(BIN_DIR)/IfStatement.o: $(SRC_DIR)/IfStatement.cpp $(LIB_DIR)/IfStatement.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
+	
+$(BIN_DIR)/Statement.o: $(SRC_DIR)/Statement.cpp $(LIB_DIR)/Statement.h
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
 
 .PHONY: clean
 clean:

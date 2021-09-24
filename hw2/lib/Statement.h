@@ -27,6 +27,7 @@ class Statement {
     // instead of returning from execute().
 public:
     virtual void execute(ProgramState* state, std::ostream& outf) = 0;
+    virtual ~Statement(); // Base class destructor
 };
 
 #endif
