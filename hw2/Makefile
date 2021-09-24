@@ -2,9 +2,13 @@ BIN_DIR = bin
 LIB_DIR = lib
 SRC_DIR = src
 CXX = g++
-CPPFLAGS = -g -Wall -I$(LIB_DIR)
+CPPFLAGS = -Wall -g -I$(LIB_DIR)
 
 all: $(BIN_DIR)/.dirstamp interpreter
+
+$(BIN_DIR)/.dirstamp:
+	mkdir -p $(BIN_DIR)
+	touch $(BIN_DIR)/.dirstamp
 
 interpreter: $(SRC_DIR)/interpreter.cpp $(BIN_DIR)/ProgramState.o $(BIN_DIR)/Statement.o $(BIN_DIR)/DivStatement.o $(BIN_DIR)/AddStatement.o $(BIN_DIR)/EndStatement.o $(BIN_DIR)/GoSubStatement.o $(BIN_DIR)/IfStatement.o $(BIN_DIR)/LetStatement.o $(BIN_DIR)/MultiplyStatement.o $(BIN_DIR)/PrintAllStatement.o $(BIN_DIR)/ReturnStatement.o $(BIN_DIR)/SubStatement.o $(BIN_DIR)/PrintStatement.o $(BIN_DIR)/GoToStatement.o
 	$(CXX) $(CPPFLAGS) $^ -o $@
@@ -54,7 +58,3 @@ $(BIN_DIR)/SubStatement.o: $(SRC_DIR)/SubStatement.cpp $(LIB_DIR)/SubStatement.h
 .PHONY: clean	
 clean:
 	rm -rf $(BIN_DIR)
-	
-$(BIN_DIR)/.dirstamp:
-	mkdir -p $(BIN_DIR)
-	touch $(BIN_DIR)/.dirstamp
