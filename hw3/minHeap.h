@@ -161,5 +161,4 @@ void MinHeap<T>::update(int location, int priority){
     nodes[location].second = priority;
     bubbleUp(location);
   }
-
-  } */
+} */
