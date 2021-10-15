@@ -1,4 +1,4 @@
-#include "minHeap.h"
+#include "MinHeap.h"
 #include <fstream>
 #include <locale>
 #include <map>
