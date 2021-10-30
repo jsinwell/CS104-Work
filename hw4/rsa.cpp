@@ -198,7 +198,6 @@ long modulExpo(long b, long n, long m) {
         binary.push_back(n % 2);
         n = n / 2;
     }
-    // Reverse binary bits in case our E value is not symmetric
 
     // Modular exponentiation function from lecture
     long x = 1;
